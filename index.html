@@ -6,14 +6,27 @@
     <title>Quant Signals - Advanced Trading Analytics</title>
     <link rel="stylesheet" href="styles.css">
     
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HRDWFRTY6E"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-HRDWFRTY6E');
-    </script>
+    <!-- Google Analytics 4 - WORKING VERSION -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HRDWFRTY6E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-HRDWFRTY6E');
+  
+  // Custom event tracking function
+  function trackEvent(eventName, eventLabel, eventValue = null) {
+    const eventData = {
+      'event_label': eventLabel
+    };
+    if (eventValue !== null) {
+      eventData['event_value'] = eventValue;
+    }
+    gtag('event', eventName, eventData);
+    console.log(`✅ GA Event: ${eventName} - ${eventLabel}`);
+  }
+</script>
+
 </head>
 <body>
     <header>
@@ -132,5 +145,6 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
